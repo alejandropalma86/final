@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}  <!-- Extendemos de nuestro archivo base.html -->
+{% load static %}  <!-- Volvemos a cargar el tag static ya que en este archivo igual accederemos a estaticos -->
+<!-- Iniciamos el contenido del bloque que asignamos en nuestro template base.html por el cual sera intercambiado al momento del render -->
+{% block content %}
+<section class="page-section about-heading">
+  <div class="container">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Registrate para ver las Vacantes Disponibles</span>
+            </h2>
+<!-- Inicio de la seccion del formulario -->
+        
+        <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+
+          <div class="form-group">
+                    <label>Nombre de Usuario:</label>
+                    <div class="input-group">
+                        {{form.username}}
+                    </div>
+                    {{form.username.errors}}
+                </div>
+          
+          <div class="form-group">
+                    <label>Email:</label>
+                    <div class="input-group">
+                        {{form.email}}
+                    </div>
+                    {{form.email.errors}}
+                </div>
+
+          <div class="form-group">
+                    <label>Contraseña:</label>
+                    <div class="input-group">
+                        {{form.password1}}
+                    </div>
+                    {{form.password1.errors}}
+                </div>
+
+          <div class="form-group">
+                    <label>Repetir Contraseña:</label>
+                    <div class="input-group">
+                        {{form.password2}}
+                    </div>
+                    {{form.password2.errors}}
+                </div>
+
+            <div class="text-center">
+                    <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
+                </div>
+             </form>
+            <!-- Fin formulario de Login -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+<!-- Fin de nuestro contenido de bloque -->

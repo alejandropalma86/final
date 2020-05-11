@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<section class="page-section about-heading">
+  <div class="container">
+   <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'core/img/vacancy.jpg' %}" alt="">
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper">Inicia sesión o registrate para ver las Vacantes Disponibles!</span>
+            </h2>
+            <!-- Formulario de contacto -->
+            {% if 'ok' in request.GET %}
+                <p> <b> Su mensaje se ha enviado correctamente</b> </p>
+            {% endif %}
+            
+            <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+                <div class="form-group">
+                    <label>Nombre de Usuario:</label>
+                    <div class="input-group">
+                        {{form.username}}
+                    </div>
+                    {{form.username.errors}}
+                </div>
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <div class="input-group">
+                         {{form.password}}
+                    </div>
+                    {{form.password.errors}}
+
+                <div>  
+                <p>
+                  <input type="submit" class="btn btn-primary btn-lg py-2" value="Inicia Sesión">
+                  <a href="{% url 'register' %}"  class="btn btn-primary btn-lg py-2">Registrate!!!</a>
+                </p>
+                </div>
+               
+
+            </form>
+            <!-- Fin formulario de Login -->
+              
+                 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+{% endblock %}
