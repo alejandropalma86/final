@@ -2,12 +2,13 @@ from django.db import models
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField 
 
 
 
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name='Título')
-    content = models.TextField(verbose_name='Contenido')
+    content = RichTextField(verbose_name='Contenido')
     published = models.DateTimeField(verbose_name='Fecha de Publicación', default=now)
     image = models.ImageField(verbose_name='Imagen', upload_to='blog', null=True, blank=True)
     author = models.ForeignKey(User, verbose_name='Autor', on_delete=models.CASCADE)

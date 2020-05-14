@@ -19,8 +19,8 @@
               <p class="mb-0 mbt"> <b>Experiencia:</b> {{vacancy.experience}}</p>
               <p class="mb-0 mbt"> <b>Edad:</b> {{vacancy.age}}</p>
               <p class="mb-0 mbt"> <b>Idiomas:</b> {{vacancy.languages}}</p>
-              <p class="mb-0 mbt"> <b>Conocimientos:</b> {{vacancy.knowledge}}</p>
-              <p class="mb-0 mbt"> <b>Actividades:</b> {{vacancy.activities}}</p>
+              <p class="mb-0 mbt"> <b>Conocimientos:</b> {{vacancy.knowledge|safe}}</p>
+              <p class="mb-0 mbt"> <b>Actividades:</b> {{vacancy.activities|safe}}</p>
               <p class="mb-0 mbt"> <b>Disponibilidad para viajar:</b> {{vacancy.travel|yesno:'Sí, No'}}</p>
               <p class="mb-0 mbt"> <b>Número de plazas:</b> {{vacancy.places}}</p>
               <p class="mb-0 mbt"> <b>Fecha de Publicación:</b> {{vacancy.published}}</p>
